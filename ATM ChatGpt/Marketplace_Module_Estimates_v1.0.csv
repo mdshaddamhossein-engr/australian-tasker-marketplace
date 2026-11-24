@@ -1,0 +1,19 @@
+﻿Module,Estimated person-days,Typical elapsed duration
+"Discovery, detailed BA, UX flows & clickable prototype",15–22 PD,2–3 weeks
+"Project foundation, environments, CI/CD, API skeleton",10–15 PD,1–2 weeks
+"Authentication, roles, account capabilities",12–18 PD,2–3 weeks
+"Customer & Tasker profiles, verification states",12–18 PD,2–3 weeks
+"Categories, location, custom task forms",10–16 PD,2–3 weeks
+"Task posting, editing, moderation, task lifecycle",18–26 PD,3–4 weeks
+"Task feed, search, filters, saved tasks",12–18 PD,2–3 weeks
+"Quotes, versions, paid Quote Fee checkout",20–30 PD,3–5 weeks
+Automatic recommendation & shortlist,12–20 PD,2–3 weeks
+"Assignment, task execution, completion workflow",14–22 PD,2–4 weeks
+Messaging & notifications,14–22 PD,2–4 weeks
+"Payment provider integration, connected onboarding, delayed transfer/payout",25–40 PD,4–6 weeks
+"Commission, ledger, refund, chargeback, reconciliation",18–28 PD,3–5 weeks
+"Reviews, disputes, support tickets",16–24 PD,3–4 weeks
+"Super Admin, RBAC, CMS, reports",22–34 PD,4–6 weeks
+"Security, privacy, accessibility, performance hardening",15–24 PD,3–4 weeks
+"QA automation, regression, UAT & release",22–32 PD,4–5 weeks
+"Production deployment, monitoring, runbooks",6–10 PD,1–2 weeks
