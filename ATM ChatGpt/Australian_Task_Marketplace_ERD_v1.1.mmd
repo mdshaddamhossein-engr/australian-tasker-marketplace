@@ -1,0 +1,356 @@
+﻿%% Australian Task Marketplace ERD v1.2 - complete logical FK map aligned to SRS v1.1.
+%% Full relationship source; each entity declaration is a logical table name and primary key.
+erDiagram
+  USERS {
+    identifier id PK
+  }
+  ROLES {
+    identifier id PK
+  }
+  USER_ROLES {
+    identifier id PK
+  }
+  USER_CONSENTS {
+    identifier id PK
+  }
+  USER_SESSIONS {
+    identifier id PK
+  }
+  ADDRESSES {
+    identifier id PK
+  }
+  USER_VERIFICATIONS {
+    identifier id PK
+  }
+  POSTER_PROFILES {
+    identifier id PK
+  }
+  TASKER_PROFILES {
+    identifier id PK
+  }
+  SKILLS {
+    identifier id PK
+  }
+  TASKER_SKILLS {
+    identifier id PK
+  }
+  CATEGORIES {
+    identifier id PK
+  }
+  TASKER_CATEGORIES {
+    identifier id PK
+  }
+  SERVICE_AREAS {
+    identifier id PK
+  }
+  AVAILABILITY_SLOTS {
+    identifier id PK
+  }
+  PORTFOLIO_ITEMS {
+    identifier id PK
+  }
+  CREDENTIALS {
+    identifier id PK
+  }
+  TASKS {
+    identifier id PK
+  }
+  TASK_CUSTOM_VALUES {
+    identifier id PK
+  }
+  TASK_ATTACHMENTS {
+    identifier id PK
+  }
+  TASK_STATUS_HISTORY {
+    identifier id PK
+  }
+  TASK_COMMENTS {
+    identifier id PK
+  }
+  SAVED_TASKS {
+    identifier id PK
+  }
+  QUOTES {
+    identifier id PK
+  }
+  QUOTE_VERSIONS {
+    identifier id PK
+  }
+  FEE_RULES {
+    identifier id PK
+  }
+  QUOTE_FEE_PAYMENTS {
+    identifier id PK
+  }
+  RECOMMENDATION_RUNS {
+    identifier id PK
+  }
+  RECOMMENDATION_CANDIDATES {
+    identifier id PK
+  }
+  SHORTLIST_ITEMS {
+    identifier id PK
+  }
+  ASSIGNMENTS {
+    identifier id PK
+  }
+  ASSIGNMENT_EVENTS {
+    identifier id PK
+  }
+  SCOPE_CHANGE_REQUESTS {
+    identifier id PK
+  }
+  CONVERSATIONS {
+    identifier id PK
+  }
+  CONVERSATION_MEMBERS {
+    identifier id PK
+  }
+  MESSAGES {
+    identifier id PK
+  }
+  MESSAGE_ATTACHMENTS {
+    identifier id PK
+  }
+  NOTIFICATIONS {
+    identifier id PK
+  }
+  PAYMENT_TRANSACTIONS {
+    identifier id PK
+  }
+  PAYMENT_ATTEMPTS {
+    identifier id PK
+  }
+  PROVIDER_EVENTS {
+    identifier id PK
+  }
+  PROVIDER_CONNECTED_ACCOUNTS {
+    identifier id PK
+  }
+  PROVIDER_BALANCE_TRANSACTIONS {
+    identifier id PK
+  }
+  LEDGER_ACCOUNTS {
+    identifier id PK
+  }
+  LEDGER_JOURNALS {
+    identifier id PK
+  }
+  LEDGER_ENTRIES {
+    identifier id PK
+  }
+  COMMISSION_CALCULATIONS {
+    identifier id PK
+  }
+  REFUNDS {
+    identifier id PK
+  }
+  PAYOUTS {
+    identifier id PK
+  }
+  PAYOUT_ITEMS {
+    identifier id PK
+  }
+  RECONCILIATION_BATCHES {
+    identifier id PK
+  }
+  REVIEWS {
+    identifier id PK
+  }
+  USER_REPORTS {
+    identifier id PK
+  }
+  DISPUTES {
+    identifier id PK
+  }
+  DISPUTE_EVIDENCE {
+    identifier id PK
+  }
+  SUPPORT_TICKETS {
+    identifier id PK
+  }
+  SUPPORT_MESSAGES {
+    identifier id PK
+  }
+  ADMIN_AUDIT_LOGS {
+    identifier id PK
+  }
+  SYSTEM_SETTINGS {
+    identifier id PK
+  }
+  CMS_TEMPLATES {
+    identifier id PK
+  }
+  CMS_PAGES {
+    identifier id PK
+  }
+  CMS_PAGE_SECTIONS {
+    identifier id PK
+  }
+  CMS_CONTENT_REVISIONS {
+    identifier id PK
+  }
+  CMS_NAVIGATION_ITEMS {
+    identifier id PK
+  }
+  CMS_MEDIA_ASSETS {
+    identifier id PK
+  }
+  CMS_CONTENT_ROUTES {
+    identifier id PK
+  }
+  TAX_RULES {
+    identifier id PK
+  }
+  PERMISSIONS {
+    identifier id PK
+  }
+  ROLE_PERMISSIONS {
+    identifier id PK
+  }
+  TASK_ASSIGNMENT_CONSENTS {
+    identifier id PK
+  }
+  AUTO_ASSIGNMENT_ATTEMPTS {
+    identifier id PK
+  }
+  TASKER_RECOMMENDATION_FEEDBACK {
+    identifier id PK
+  }
+  OUTBOX_EVENTS {
+    identifier id PK
+  }
+  IDEMPOTENCY_RECORDS {
+    identifier id PK
+  }
+  USERS ||--o| POSTER_PROFILES : user_id
+  USERS ||--o| TASKER_PROFILES : user_id
+  USERS ||--o{ USER_ROLES : user_id
+  USERS o|--o{ USER_ROLES : assigned_by
+  ROLES ||--o{ USER_ROLES : role_id
+  USERS ||--o{ USER_CONSENTS : user_id
+  USERS ||--o{ USER_SESSIONS : user_id
+  USERS ||--o{ ADDRESSES : user_id
+  USERS ||--o{ USER_VERIFICATIONS : user_id
+  USERS o|--o{ USER_VERIFICATIONS : reviewed_by
+  USERS ||--o{ ROLE_PERMISSIONS : granted_by
+  ROLES ||--o{ ROLE_PERMISSIONS : role_id
+  PERMISSIONS ||--o{ ROLE_PERMISSIONS : permission_id
+  CATEGORIES o|--o{ CATEGORIES : parent_id
+  CATEGORIES ||--o{ SKILLS : category_id
+  TASKER_PROFILES ||--o{ TASKER_SKILLS : tasker_profile_id
+  SKILLS ||--o{ TASKER_SKILLS : skill_id
+  TASKER_PROFILES ||--o{ TASKER_CATEGORIES : tasker_profile_id
+  CATEGORIES ||--o{ TASKER_CATEGORIES : category_id
+  TASKER_PROFILES ||--o{ SERVICE_AREAS : tasker_profile_id
+  TASKER_PROFILES ||--o{ AVAILABILITY_SLOTS : tasker_profile_id
+  TASKER_PROFILES ||--o{ PORTFOLIO_ITEMS : tasker_profile_id
+  CATEGORIES o|--o{ PORTFOLIO_ITEMS : category_id
+  TASKER_PROFILES ||--o{ CREDENTIALS : tasker_profile_id
+  USERS o|--o{ CREDENTIALS : reviewed_by
+  USERS ||--o{ TASKS : poster_user_id
+  CATEGORIES ||--o{ TASKS : category_id
+  ADDRESSES o|--o{ TASKS : address_id
+  TASKS ||--o{ TASK_CUSTOM_VALUES : task_id
+  TASKS ||--o{ TASK_ATTACHMENTS : task_id
+  USERS ||--o{ TASK_ATTACHMENTS : uploaded_by
+  TASKS ||--o{ TASK_STATUS_HISTORY : task_id
+  USERS o|--o{ TASK_STATUS_HISTORY : changed_by
+  TASKS ||--o{ TASK_COMMENTS : task_id
+  USERS ||--o{ TASK_COMMENTS : user_id
+  USERS ||--o{ SAVED_TASKS : user_id
+  TASKS ||--o{ SAVED_TASKS : task_id
+  TASKS ||--o{ QUOTES : task_id
+  TASKER_PROFILES ||--o{ QUOTES : tasker_profile_id
+  QUOTES ||--o{ QUOTE_VERSIONS : quote_id
+  USERS o|--o{ QUOTE_VERSIONS : created_by
+  CATEGORIES o|--o{ FEE_RULES : category_id
+  TAX_RULES o|--o{ FEE_RULES : tax_rule_id
+  QUOTES ||--o{ QUOTE_FEE_PAYMENTS : quote_id
+  USERS ||--o{ QUOTE_FEE_PAYMENTS : tasker_user_id
+  FEE_RULES ||--o{ QUOTE_FEE_PAYMENTS : fee_rule_id
+  TASKS ||--o{ RECOMMENDATION_RUNS : task_id
+  RECOMMENDATION_RUNS ||--o{ RECOMMENDATION_CANDIDATES : run_id
+  QUOTES ||--o{ RECOMMENDATION_CANDIDATES : quote_id
+  RECOMMENDATION_RUNS ||--o{ SHORTLIST_ITEMS : run_id
+  QUOTES ||--o{ SHORTLIST_ITEMS : quote_id
+  TASKS ||--o| TASK_ASSIGNMENT_CONSENTS : task_id
+  USERS ||--o{ TASK_ASSIGNMENT_CONSENTS : poster_user_id
+  TASKS ||--o{ AUTO_ASSIGNMENT_ATTEMPTS : task_id
+  RECOMMENDATION_RUNS ||--o{ AUTO_ASSIGNMENT_ATTEMPTS : recommendation_run_id
+  QUOTES o|--o{ AUTO_ASSIGNMENT_ATTEMPTS : selected_quote_id
+  TASKS ||--o| ASSIGNMENTS : task_id
+  QUOTES ||--o| ASSIGNMENTS : accepted_quote_id
+  USERS ||--o{ ASSIGNMENTS : poster_user_id
+  TASKER_PROFILES ||--o{ ASSIGNMENTS : tasker_profile_id
+  QUOTE_VERSIONS ||--o{ ASSIGNMENTS : accepted_quote_version_id
+  AUTO_ASSIGNMENT_ATTEMPTS o|--o| ASSIGNMENTS : auto_assignment_attempt_id
+  ASSIGNMENTS ||--o{ ASSIGNMENT_EVENTS : assignment_id
+  USERS ||--o{ ASSIGNMENT_EVENTS : actor_user_id
+  ASSIGNMENTS ||--o{ SCOPE_CHANGE_REQUESTS : assignment_id
+  USERS ||--o{ SCOPE_CHANGE_REQUESTS : requested_by
+  ASSIGNMENTS ||--o| CONVERSATIONS : assignment_id
+  CONVERSATIONS ||--|{ CONVERSATION_MEMBERS : conversation_id
+  USERS ||--o{ CONVERSATION_MEMBERS : user_id
+  CONVERSATIONS ||--o{ MESSAGES : conversation_id
+  USERS ||--o{ MESSAGES : sender_user_id
+  MESSAGES ||--o{ MESSAGE_ATTACHMENTS : message_id
+  USERS ||--o{ NOTIFICATIONS : user_id
+  OUTBOX_EVENTS o|--o{ NOTIFICATIONS : outbox_event_id
+  ASSIGNMENTS o|--o{ PAYMENT_TRANSACTIONS : assignment_id
+  USERS ||--o{ PAYMENT_TRANSACTIONS : user_id
+  PAYMENT_TRANSACTIONS ||--o| QUOTE_FEE_PAYMENTS : payment_transaction_id
+  PAYMENT_TRANSACTIONS ||--o{ PAYMENT_ATTEMPTS : payment_transaction_id
+  PAYMENT_TRANSACTIONS o|--o{ PROVIDER_EVENTS : payment_transaction_id
+  TASKER_PROFILES ||--o{ PROVIDER_CONNECTED_ACCOUNTS : tasker_profile_id
+  RECONCILIATION_BATCHES o|--o{ PROVIDER_BALANCE_TRANSACTIONS : reconciliation_batch_id
+  ASSIGNMENTS ||--o{ COMMISSION_CALCULATIONS : assignment_id
+  FEE_RULES o|--o{ COMMISSION_CALCULATIONS : fee_rule_id
+  LEDGER_JOURNALS ||--|{ LEDGER_ENTRIES : journal_id
+  LEDGER_ACCOUNTS ||--o{ LEDGER_ENTRIES : ledger_account_id
+  PAYMENT_TRANSACTIONS ||--o{ REFUNDS : payment_transaction_id
+  USERS o|--o{ REFUNDS : requested_by
+  USERS o|--o{ REFUNDS : approved_by
+  TASKER_PROFILES ||--o{ PAYOUTS : tasker_profile_id
+  PAYOUTS ||--|{ PAYOUT_ITEMS : payout_id
+  ASSIGNMENTS ||--o{ PAYOUT_ITEMS : assignment_id
+  USERS o|--o{ RECONCILIATION_BATCHES : created_by
+  ASSIGNMENTS ||--o{ DISPUTES : assignment_id
+  USERS ||--o{ DISPUTES : opened_by
+  USERS o|--o{ DISPUTES : assigned_agent_id
+  DISPUTES ||--o{ DISPUTE_EVIDENCE : dispute_id
+  USERS ||--o{ DISPUTE_EVIDENCE : uploaded_by
+  ASSIGNMENTS ||--o{ REVIEWS : assignment_id
+  USERS ||--o{ REVIEWS : reviewer_user_id
+  USERS ||--o{ REVIEWS : reviewee_user_id
+  USERS ||--o{ USER_REPORTS : reporter_user_id
+  USERS o|--o{ USER_REPORTS : reported_user_id
+  TASKS o|--o{ USER_REPORTS : task_id
+  USERS o|--o{ USER_REPORTS : assigned_to
+  USERS ||--o{ SUPPORT_TICKETS : requester_user_id
+  TASKS o|--o{ SUPPORT_TICKETS : task_id
+  ASSIGNMENTS o|--o{ SUPPORT_TICKETS : assignment_id
+  USERS o|--o{ SUPPORT_TICKETS : assigned_agent_id
+  SUPPORT_TICKETS ||--o{ SUPPORT_MESSAGES : ticket_id
+  USERS ||--o{ SUPPORT_MESSAGES : sender_user_id
+  USERS ||--o{ ADMIN_AUDIT_LOGS : actor_user_id
+  USERS o|--o{ SYSTEM_SETTINGS : updated_by
+  USERS ||--o{ CMS_TEMPLATES : created_by
+  CMS_TEMPLATES ||--o{ CMS_PAGES : template_id
+  USERS o|--o{ CMS_PAGES : updated_by
+  CMS_PAGES ||--o{ CMS_PAGE_SECTIONS : page_id
+  CMS_MEDIA_ASSETS o|--o{ CMS_PAGE_SECTIONS : media_asset_id
+  CMS_PAGES ||--o{ CMS_CONTENT_REVISIONS : page_id
+  USERS ||--o{ CMS_CONTENT_REVISIONS : published_by
+  CMS_CONTENT_REVISIONS o|--o| CMS_PAGES : published_version_id
+  CMS_NAVIGATION_ITEMS o|--o{ CMS_NAVIGATION_ITEMS : parent_id
+  CMS_PAGES o|--o{ CMS_NAVIGATION_ITEMS : page_id
+  CMS_PAGES ||--o{ CMS_CONTENT_ROUTES : page_id
+  USERS ||--o{ CMS_MEDIA_ASSETS : uploaded_by
+  RECOMMENDATION_RUNS ||--o{ TASKER_RECOMMENDATION_FEEDBACK : run_id
+  QUOTES ||--o{ TASKER_RECOMMENDATION_FEEDBACK : quote_id
+  USERS ||--o{ TASKER_RECOMMENDATION_FEEDBACK : actor_user_id
+  USERS o|--o{ IDEMPOTENCY_RECORDS : actor_user_id
+
+
+
